@@ -1,0 +1,6 @@
+  reveal_md:
+    image: webpronl/reveal-md:latest
+    ports:
+      - $1:1948
+    volumes:
+      - $2:/slides
