@@ -1,7 +1,5 @@
-use std::fmt::format;
 use std::fs;
 use std::io::{stdin, stdout, BufRead, Write};
-use std::path::PathBuf;
 
 fn main() {
     println!("Welcome to the setup for 'NebularStore'");
@@ -12,7 +10,7 @@ fn main() {
     let admin_password = user_input("Admin password: ");
     let mut reveal_md_yn = false;
     let mut reveal_md_port = None;
-    if (user_input("Do you want to add the 'reveal_md' plugin? (y/n): ").to_lowercase() == "y") {
+    if user_input("Do you want to add the 'reveal_md' plugin? (y/n): ").to_lowercase() == "y" {
         reveal_md_yn = true;
         reveal_md_port = Some(user_input("Reveal md port: "));
     }
@@ -29,13 +27,12 @@ fn main() {
         .expect("Failed to create data directories");
     fs::create_dir_all(format!("{}/data/repository", &install_path))
         .expect("Failed to create data directories");
-    
+
     let install_path_buf = fs::canonicalize(install_path).unwrap();
     let install_path = install_path_buf
         .to_str()
         .unwrap()
         .trim_start_matches("\\\\?\\");
-
 
     println!("Generating files");
     let compose = compose
