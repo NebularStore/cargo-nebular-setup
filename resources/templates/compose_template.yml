@@ -1,0 +1,14 @@
+services:
+  frontend:
+    build: https://github.com/NebularStore/nebular-store-frontend.git
+    ports:
+      - $1:5173
+    env_file:
+      - client.env
+
+  backend:
+    build: https://github.com/NebularStore/nebular-store-backend.git
+    ports:
+      - $2:8080
+    volumes:
+      - $3:/build/data/
