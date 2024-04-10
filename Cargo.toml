@@ -2,5 +2,11 @@
 name = "cargo-nebular-setup"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "An setup script for the nebular store"
+homepage = ""
+documentation = ""
+repository = "https://github.com/NebularStore/cargo-nebular-setup"
+readme = "README.md"
 
 [dependencies]
