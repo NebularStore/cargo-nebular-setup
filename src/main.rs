@@ -1,7 +1,11 @@
+use public_ip_addr::get_public_ip;
 use std::fs;
 use std::io::{stdin, stdout, BufRead, Write};
 
-fn main() {
+#[tokio::main]
+async fn main() {
+    let ip = get_public_ip().await.unwrap();
+
     println!("Welcome to the setup for 'NebularStore'");
     let install_path = user_input("Path for installation: ");
     let company_name = user_input("Company name: ");
@@ -53,9 +57,11 @@ fn main() {
     let general = general.replace("$1", &company_name);
     let admin = admin.replace("$1", &admin_password);
     let client = client
-        .replace("$1", &backend_port)
-        .replace("$2", &reveal_md_port.unwrap_or("1948".to_string()))
-        .replace("$3", &reveal_md_yn.to_string());
+        .replace("$1", &ip.to_string())
+        .replace("$2", &backend_port)
+        .replace("$3", &ip.to_string())
+        .replace("$4", &reveal_md_port.unwrap_or("1948".to_string()))
+        .replace("$5", &reveal_md_yn.to_string());
 
     println!("Writing files");
     fs::write(
