@@ -6,7 +6,7 @@ To use this tool you will need to install [Cargo](https://www.rust-lang.org/tool
 
 ## Installing
 This tool is a Cargo Plugin, meaning you can install it via: \
-```cargo install cargo-nebular-setup``` \
+```cargo install cargo-nebular-setup```
 
 ## Running the setup
 
