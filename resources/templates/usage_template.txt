@@ -1,0 +1,10 @@
+Preface
+For this you will need docker compose installed: https://docs.docker.com/compose/install/
+
+Starting
+To start the service run "docker compose up --build -d" in the installation directory.
+Now the service runs in the background with the ports specified in the setup.
+
+Stopping
+To stop the service run "docker compose down" in the installation directory.
+If you want to remove the images and so on created by docker compose add the arguments "--rmi all -v".

@@ -25,6 +25,7 @@ async fn main() {
     let client = include_str!("../resources/templates/client_example.env");
     let icon = include_bytes!("../resources/templates/icon_template.jpg");
     let reveal_md = include_str!("../resources/templates/reveal_md_template.yml");
+    let how_to = include_str!("../resources/templates/usage_template.txt");
 
     println!("Generating directories");
     fs::create_dir_all(format!("{}/data/config", &install_path))
@@ -77,10 +78,11 @@ async fn main() {
         .expect("Failed to write admin config");
     fs::write(format!("{}/compose.yml", &install_path), compose)
         .expect("Failed to write admin config");
+    fs::write(format!("{}/howTo.txt", &install_path), how_to).expect("Failed to write how-to file");
 
     println!("Finished setup");
     println!("For configuration look into the /data/config/ folder (icon, company_name, ...)");
-    println!("To run the application run 'docker compose up'")
+    println!("For understanding how to use the service, look at the 'howTo.txt'")
 }
 
 fn user_input(prompt: &str) -> String {
