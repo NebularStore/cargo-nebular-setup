@@ -79,7 +79,7 @@ async fn main() {
         .expect("Failed to write admin config");
 
     println!("Finished setup");
-    println!("For configuration look into the /data/config/ folder");
+    println!("For configuration look into the /data/config/ folder (icon, company_name, ...)");
     println!("To run the application run 'docker compose up'")
 }
 
